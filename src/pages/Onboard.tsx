@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Onboard() {
+function Home() {
   const navigate = useNavigate();
   return (
     <>
@@ -9,9 +9,9 @@ function Onboard() {
         <div className="hero-content w-10/12">
           <div className="">
             <h1 className="text-5xl font-bold">
-              Hello Welcome to{" "}
+              Hello Welcome
               <span className="font-extrabold text-primary underline">
-                WaveWhisper
+                {}
               </span>{" "}
               Beta
             </h1>
@@ -20,7 +20,6 @@ function Onboard() {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button onClick={() => navigate("/login")} className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
@@ -28,4 +27,4 @@ function Onboard() {
   );
 }
 
-export default Onboard;
+export default Home;
