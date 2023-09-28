@@ -4,7 +4,7 @@ import Config from "../../assets/configuracion.png";
 function NavBar() {
   return (
     <>
-      <div className="navbar bg-transparent justify-around fixed z-10">
+      <div className="navbar bg-transparent absolute top-6 justify-around w-10/12">
         <div className="form-control">
           <input
             type="text"

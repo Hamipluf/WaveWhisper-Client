@@ -42,11 +42,14 @@ function App() {
   if (isError) {
     return <div>Error al cargar los datos.</div>;
   }
+  console.log(data)
   return (
     <>
       <Sidebar>
-        <NavBar />
-        <div className="hero">{data ? <Home /> : <Onboard />}</div>
+        <div className="hero">
+          <NavBar />
+          {data?.success ? <Home /> : <Onboard />}
+        </div>
         <Footer />
       </Sidebar>
     </>

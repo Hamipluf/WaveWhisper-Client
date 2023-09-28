@@ -7,8 +7,8 @@ import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import "./styles/index.css";
 
-// export const url_production = "https://wavewhisper-server.onrender.com"
-export const url_production = "http://localhost:3000";
+export const url_production = "https://wavewhisper-server.onrender.com"
+// export const url_production = "http://localhost:3000";
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")!).render(

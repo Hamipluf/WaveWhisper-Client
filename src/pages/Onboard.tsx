@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Onboard() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 rounded-2xl">
         <div className="hero-content w-10/12">
           <div className="">
             <h1 className="text-5xl font-bold">
@@ -20,6 +20,7 @@ function Home() {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
+            <div onClick={() => navigate("/login")} className="btn btn-ghost">Login</div>
           </div>
         </div>
       </div>
@@ -27,4 +28,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Onboard;
