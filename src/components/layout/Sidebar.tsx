@@ -4,7 +4,7 @@ import Logo from "../../../public/logo_transparent.png";
 function Sidebar(props: any) {
   return (
     <>
-      <div className="grid grid-cols-8 min-h-screen relative bg-default">
+      <div className="grid grid-cols-8 min-h-screen relative bg-neutral">
         <div className="fixed">
           <div className="">
             <div className="avatar">
