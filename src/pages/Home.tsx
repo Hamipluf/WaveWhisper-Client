@@ -7,6 +7,8 @@ import { url_production } from "../main";
 import { fetchCurrentData } from "../utils/fetchCurrentData";
 // Interfaces
 import { dataCurrent } from "../utils/interfaces";
+// Components
+import Embled from "../components/layout/Embled";
 function Home() {
   const {
     data,
@@ -27,7 +29,6 @@ function Home() {
   const img: [string] = [
     "https://img.freepik.com/foto-gratis/tocadiscos-antiguo-que-reproduce-ia-generativa-disco-discoteca-multicolor_188544-31801.jpg?w=900&t=st=1695914078~exp=1695914678~hmac=c89b40a8e93a0b6ad27a112236b9540b7bf57a87daaa4c4f38bcb9cb42ee00b6",
     "https://img.freepik.com/foto-gratis/tocadiscos-antiguo-que-reproduce-ia-generativa-disco-discoteca-multicolor_188544-31801.jpg?w=900&t=st=1695914078~exp=1695914678~hmac=c89b40a8e93a0b6ad27a112236b9540b7bf57a87daaa4c4f38bcb9cb42ee00b6",
-    "https://img.freepik.com/foto-gratis/tocadiscos-antiguo-que-reproduce-ia-generativa-disco-discoteca-multicolor_188544-31801.jpg?w=900&t=st=1695914078~exp=1695914678~hmac=c89b40a8e93a0b6ad27a112236b9540b7bf57a87daaa4c4f38bcb9cb42ee00b6",
     "https://img.freepik.com/foto-gratis/cerca-microfono-escenario-conciertos-hermosa-iluminacion_169016-11215.jpg?w=826&t=st=1695914080~exp=1695914680~hmac=c40782ccd379121df2135fd370bb72a7a6ca82d98cc624332f81867c86d7a1f2",
     "https://img.freepik.com/foto-gratis/cerca-microfono-escenario-conciertos-hermosa-iluminacion_169016-11215.jpg?w=826&t=st=1695914080~exp=1695914680~hmac=c40782ccd379121df2135fd370bb72a7a6ca82d98cc624332f81867c86d7a1f2",
     "https://img.freepik.com/foto-gratis/cerca-microfono-escenario-conciertos-hermosa-iluminacion_169016-11215.jpg?w=826&t=st=1695914080~exp=1695914680~hmac=c40782ccd379121df2135fd370bb72a7a6ca82d98cc624332f81867c86d7a1f2",
@@ -41,26 +42,58 @@ function Home() {
 
   return (
     <>
-      <div className="hero bg-neutral m-4 rounded-xl text-ligth">
+      <div className="hero bg-base-100 m-4 rounded-xl text-ligth">
         <div className="grid grid-cols-1 m-2 w-full justify-items-center">
-          {/* User */}
-          <div className="w-11/12 mt-20">
-            <div className="card bg-[#0F1920] text-primary-content shadow-cardFloat">
-              <div className="card-body">
-                <h2 className="card-title">Bienvenido {data?.data?.name}!</h2>
-                <p>Recientes escuchados</p>
-                <div className="carousel rounded-box">
+          {/* Bienvenido */}
+          <div className="mt-20 grid grid-cols-4 gap-x-5 items-start w-full">
+            <div className="col-span-3 w-11/12">
+              <div className="card m-4 bg-[#0F1920] text-primary-content shadow-cardFloat ">
+                <div className="card-body">
+                  <h2 className="card-title">Bienvenido {data?.data?.name}!</h2>
+                  <p>Recientes escuchados</p>
+                  <div className="carousel rounded-box">
+                    {img.map((img: string, idx: number) => {
+                      return (
+                        <div key={idx} className="carousel-item mx-4 ">
+                          <div className="card w-40 shadow-xl justify-center image-full hover:opacity-80">
+                            <figure className="">
+                              <img
+                                src={img}
+                                alt="Imagen de prueba"
+                                className="rounded-xl w-80 h-25 "
+                              />
+                            </figure>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+              {/* Playlist */}
+              <div className="grid grid-cols-1">
+                <h2 className="text-2xl text-secondary mx-4 my-2 font-bold">
+                  Playlists
+                </h2>
+                <div className="carousel rounded-box m-2">
                   {img.map((img: string, idx: number) => {
                     return (
-                      <div key={idx} className="carousel-item mx-4 ">
-                        <div className="card w-40 shadow-xl justify-center image-full hover:opacity-80">
-                          <figure className="">
-                            <img
-                              src={img}
-                              alt="Imagen de prueba"
-                              className="rounded-xl w-80 h-25 "
-                            />
+                      <div key={idx} className="carousel-item mx-10">
+                        <div className="card w-60 bg-base-100 shadow-xl image-full">
+                          <figure>
+                            <img src={img} alt="Shoes" />
                           </figure>
+                          <div className="card-body">
+                            <h2 className="card-title">Shoes!</h2>
+                            <p>
+                              If a dog chews shoes whose shoes does he choose?
+                            </p>
+                            <div className="card-actions justify-end">
+                              <button className="btn btn-primary">
+                                Buy Now
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     );
@@ -68,34 +101,34 @@ function Home() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="grid grid-cols-1 m-4 bg-transparent rounded-md">
-            <h2 className="text-2xl text-secondary mx-4 my-2 font-bold">
-              Playlists
-            </h2>
-            <div className="carousel rounded-box m-2">
-              {img.map((img: string, idx: number) => {
-                return (
-                  <div key={idx} className="carousel-item mx-10">
-                    <div className="card w-60 bg-base-100 shadow-xl image-full">
-                      <figure>
-                        <img
-                          src={img}
-                          alt="Shoes"
-                        />
-                      </figure>
-                      <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                          <button className="btn btn-primary">Buy Now</button>
-                        </div>
-                      </div>
+            {/* Top 10 */}
+            <div className="card glass shadow-cardFloat mr-5  ">
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">Top 10</h2>
+                {img.map((element, index) => {
+                  return (
+                    <div className="mt-2" key={index}>
+                      <p>Cancion {index}</p>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
+          </div>
+          <div className="grid grid-cols-3">
+            <div className="col-span-2">
+              <div className="card bg-base-100 shadow-xl">
+                <div className="card-body">
+                  <h2 className="card-title">Recomendados</h2>
+                  {img.map((element, index) => {
+                    return <>
+                    <p key={index}>Cancion {index}</p>
+                    </>;
+                  })}
+                </div>
+              </div>
+            </div>
+            <Embled />
           </div>
         </div>
       </div>

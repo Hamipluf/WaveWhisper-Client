@@ -48,7 +48,7 @@ function App() {
       <Sidebar>
         <div className="hero">
           <NavBar />
-          {data?.success ? <Home /> : <Onboard />}
+          {!data?.success ? <Home /> : <Onboard />}
         </div>
         <Footer />
       </Sidebar>
